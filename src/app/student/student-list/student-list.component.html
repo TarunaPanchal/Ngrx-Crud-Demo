@@ -1,0 +1,32 @@
+<br />
+<br />
+<br />
+<h3>Student</h3>
+<table class="table table-hover">
+  <thead>
+    <tr class="table-primary">
+      <th scope="col">Name</th>
+      <th scope="col">Std</th>
+      <th scope="col">School</th>
+      <th scope="col">Phone</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="5" class="alert alert-danger" *ngIf="error$ | async as error">{{error}}</td>
+    </tr>
+    <tr>
+    <tr *ngFor="let student of (students$ |async)">
+      <th scope="row">{{student.name}}</th>
+      <td>{{student.std}}</td>
+      <td>{{student.school}}</td>
+      <td>{{student.phone}}</td>
+      <th>
+        <a class="link" (click)=editStudent(student)>edit</a>
+        <br>
+        <a class="link" (click)=deleteStudent(student)>delete</a>
+      </th>
+    </tr>
+  </tbody>
+</table>
